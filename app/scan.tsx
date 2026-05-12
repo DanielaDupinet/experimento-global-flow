@@ -2,7 +2,6 @@ import {
   BoltIcon,
   Button,
   CloseIcon,
-  ImageAddIcon,
   NText,
   TopBar,
   useNuDSTheme,
@@ -10,6 +9,7 @@ import {
 import { CameraView, useCameraPermissions } from "expo-camera";
 import { useRouter } from "expo-router";
 import { Pressable, StyleSheet, View } from "react-native";
+import { ImageAddCustomIcon } from "../components/icons/ImageAddCustomIcon";
 
 export default function ScanScreen() {
   const nuds = useNuDSTheme();
@@ -84,7 +84,7 @@ export default function ScanScreen() {
             { borderColor: nuds.color.border.default },
           ]}
         >
-          <ImageAddIcon color={nuds.color.content.default} />
+          <ImageAddCustomIcon color={nuds.color.content.default} size={24} />
         </Pressable>
 
         <Button
