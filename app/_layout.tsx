@@ -47,6 +47,13 @@ export default function RootLayout() {
                 animation: "slide_from_bottom",
               }}
             />
+            <Stack.Screen
+              name="summary"
+              options={{
+                presentation: "modal",
+                animation: "fade",
+              }}
+            />
           </Stack>
         </SafeAreaProvider>
       </GestureHandlerRootView>
