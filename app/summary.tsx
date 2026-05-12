@@ -7,6 +7,7 @@ import {
   ListRow,
   NText,
   PencilIcon,
+  SectionTitle,
   TopBar,
   useNuDSTheme,
 } from "@nu-design-org/nuds-vibecode-react-native";
@@ -31,13 +32,14 @@ export default function SummaryScreen() {
       style={[styles.safe, { backgroundColor: nuds.color.surface.default }]}
       edges={["top", "left", "right"]}
     >
-      {/* ── Top Bar con flecha de regreso ── */}
+      {/* ── Top Bar modal con flecha de regreso (variant=Modal en Figma) ── */}
       <TopBar
         title=""
-        variant="default"
+        variant="modal"
         show1stAction={false}
         leading={<ArrowBackIcon color={nuds.color.content.default} opacity={0.62} />}
         onBackPress={handleBack}
+        style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
       />
 
       <ScrollView
@@ -69,6 +71,9 @@ export default function SummaryScreen() {
           <Badge label="Due June 2nd" color="success" />
         </View>
 
+        {/* ── Section Title #1 (Figma node 5058:20707) ── */}
+        <SectionTitle title="Pay with" compact />
+
         {/* ── Lista 1: Cash balance ── */}
         <View style={styles.listGroup}>
           <View
@@ -89,6 +94,9 @@ export default function SummaryScreen() {
             />
           </View>
         </View>
+
+        {/* ── Section Title #2 (Figma node 5058:20714) ── */}
+        <SectionTitle title="Schedule" compact />
 
         {/* ── Lista 2: When to pay + Reminder ── */}
         <View style={styles.listGroup}>
