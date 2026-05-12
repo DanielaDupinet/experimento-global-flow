@@ -13,6 +13,7 @@ import {
   TransactionListRow,
   useNuDSTheme,
 } from "@nu-design-org/nuds-vibecode-react-native";
+import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { Image, Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -25,6 +26,7 @@ const NUDS_TOP_ICON_INNER = 32;
 
 export default function PayScreen() {
   const nuds = useNuDSTheme();
+  const router = useRouter();
 
   /* ── Iconos circulares de Inline Actions (Add bill / Top Up / Gift card) ── */
   const inlineIconColor = nuds.color.content.default;
@@ -138,7 +140,7 @@ export default function PayScreen() {
               key: "add-bill",
               label: "Add bill",
               icon: <CameraIcon color={inlineIconColor} />,
-              onPress: () => undefined,
+              onPress: () => router.push("/scan"),
             },
             {
               key: "top-up",

@@ -40,6 +40,13 @@ export default function RootLayout() {
         <SafeAreaProvider>
           <Stack screenOptions={{ headerShown: false, animation: "slide_from_right" }}>
             <Stack.Screen name="index" />
+            <Stack.Screen
+              name="scan"
+              options={{
+                presentation: "modal",
+                animation: "slide_from_bottom",
+              }}
+            />
           </Stack>
         </SafeAreaProvider>
       </GestureHandlerRootView>
