@@ -1,0 +1,719 @@
+{
+  "scannedAt": "2026-02-17T17:02:52.728Z",
+  "file": {
+    "key": "dqfrs37AQmkZcC1LpaGcLf",
+    "name": "[WIP] NuDS V3 – Components & Templates",
+    "lastModified": "2026-02-17T14:24:02Z"
+  },
+  "counts": {
+    "pages": 60,
+    "publishedComponents": 545,
+    "variables": 199
+  },
+  "pages": [
+    {
+      "id": "0:1",
+      "name": "Thumbnail",
+      "normalizedName": "thumbnail"
+    },
+    {
+      "id": "9:32",
+      "name": "--",
+      "normalizedName": ""
+    },
+    {
+      "id": "1:4",
+      "name": "Components",
+      "normalizedName": "components"
+    },
+    {
+      "id": "9:33",
+      "name": "    ↪ Avatar",
+      "normalizedName": "avatar"
+    },
+    {
+      "id": "190:470",
+      "name": "    ↪ Avatar Group",
+      "normalizedName": "avatar group"
+    },
+    {
+      "id": "145:442",
+      "name": "    ↪ Badge",
+      "normalizedName": "badge"
+    },
+    {
+      "id": "4783:25543",
+      "name": "    ↪ Bottom Bar",
+      "normalizedName": "bottom bar"
+    },
+    {
+      "id": "1041:33",
+      "name": "    ↪ Button",
+      "normalizedName": "button"
+    },
+    {
+      "id": "4792:29862",
+      "name": "    ↪ Button Link",
+      "normalizedName": "button link"
+    },
+    {
+      "id": "4792:33525",
+      "name": "    ↪ Callout Box",
+      "normalizedName": "callout box"
+    },
+    {
+      "id": "4783:27526",
+      "name": "    ↪ Checkout Bottom Bar",
+      "normalizedName": "checkout bottom bar"
+    },
+    {
+      "id": "7918:1016",
+      "name": "    ↪ Contextual Offers Section",
+      "normalizedName": "contextual offers section"
+    },
+    {
+      "id": "4792:37418",
+      "name": "    ↪ Data Select",
+      "normalizedName": "data select"
+    },
+    {
+      "id": "5119:16759",
+      "name": "    ↪ Date Picker",
+      "normalizedName": "date picker"
+    },
+    {
+      "id": "3473:3714",
+      "name": "    ↪ Divider",
+      "normalizedName": "divider"
+    },
+    {
+      "id": "918:59",
+      "name": "    ↪ Dropdown",
+      "normalizedName": "dropdown"
+    },
+    {
+      "id": "4847:38083",
+      "name": "    ↪ Filter Bar",
+      "normalizedName": "filter bar"
+    },
+    {
+      "id": "4847:33704",
+      "name": "    ↪ Filter Chip",
+      "normalizedName": "filter chip"
+    },
+    {
+      "id": "4807:8144",
+      "name": "    ↪ Header 🚧",
+      "normalizedName": "header 🚧"
+    },
+    {
+      "id": "66:770",
+      "name": "    ↪ Icon Action",
+      "normalizedName": "icon action"
+    },
+    {
+      "id": "4296:2",
+      "name": "    ↪ Inline Actions",
+      "normalizedName": "inline actions"
+    },
+    {
+      "id": "4940:4062",
+      "name": "    ↪ Input Dropdown",
+      "normalizedName": "input dropdown"
+    },
+    {
+      "id": "4940:5983",
+      "name": "    ↪ Input Password",
+      "normalizedName": "input password"
+    },
+    {
+      "id": "4807:23443",
+      "name": "    ↪ Input Text",
+      "normalizedName": "input text"
+    },
+    {
+      "id": "980:4424",
+      "name": "    ↪ Input Controls",
+      "normalizedName": "input controls"
+    },
+    {
+      "id": "3124:1334",
+      "name": "    ↪ Linear Progress Bar",
+      "normalizedName": "linear progress bar"
+    },
+    {
+      "id": "1043:7441",
+      "name": "    ↪ List Section",
+      "normalizedName": "list section"
+    },
+    {
+      "id": "1002:4202",
+      "name": "    ↪ List Row",
+      "normalizedName": "list row"
+    },
+    {
+      "id": "4792:29393",
+      "name": "    ↪ Loading Indicator",
+      "normalizedName": "loading indicator"
+    },
+    {
+      "id": "4783:27756",
+      "name": "    ↪ Next Bottom Bar",
+      "normalizedName": "next bottom bar"
+    },
+    {
+      "id": "4344:1707",
+      "name": "    ↪ Notification",
+      "normalizedName": "notification"
+    },
+    {
+      "id": "4835:17105",
+      "name": "    ↪ Page Control",
+      "normalizedName": "page control"
+    },
+    {
+      "id": "3002:2931",
+      "name": "    ↪ Performance Indicator ",
+      "normalizedName": "performance indicator"
+    },
+    {
+      "id": "4844:21707",
+      "name": "    ↪ PIN Code",
+      "normalizedName": "pin code"
+    },
+    {
+      "id": "4786:1281",
+      "name": "    ↪ Product Overview 🚧",
+      "normalizedName": "product overview 🚧"
+    },
+    {
+      "id": "4847:5055",
+      "name": "    ↪ Search Bar",
+      "normalizedName": "search bar"
+    },
+    {
+      "id": "1060:9137",
+      "name": "    ↪ Section Title",
+      "normalizedName": "section title"
+    },
+    {
+      "id": "4729:5618",
+      "name": "    ↪ Segmented Control",
+      "normalizedName": "segmented control"
+    },
+    {
+      "id": "4835:11656",
+      "name": "    ↪ Stepped Progress Bar",
+      "normalizedName": "stepped progress bar"
+    },
+    {
+      "id": "4847:38538",
+      "name": "    ↪ Slider",
+      "normalizedName": "slider"
+    },
+    {
+      "id": "4857:42962",
+      "name": "    ↪ Tab Bar",
+      "normalizedName": "tab bar"
+    },
+    {
+      "id": "4857:43395",
+      "name": "    ↪ Tag",
+      "normalizedName": "tag"
+    },
+    {
+      "id": "4857:44000",
+      "name": "    ↪ Tiles",
+      "normalizedName": "tiles"
+    },
+    {
+      "id": "4881:4950",
+      "name": "    ↪ Timeline",
+      "normalizedName": "timeline"
+    },
+    {
+      "id": "4896:413",
+      "name": "    ↪ Toast",
+      "normalizedName": "toast"
+    },
+    {
+      "id": "4896:3821",
+      "name": "    ↪ Tooltip",
+      "normalizedName": "tooltip"
+    },
+    {
+      "id": "942:2",
+      "name": "    ↪ Top Bar",
+      "normalizedName": "top bar"
+    },
+    {
+      "id": "800:727",
+      "name": "    ↪ Transaction List Row",
+      "normalizedName": "transaction list row"
+    },
+    {
+      "id": "3166:2427",
+      "name": "    ↪ Transaction Widget",
+      "normalizedName": "transaction widget"
+    },
+    {
+      "id": "3002:320",
+      "name": "    ↪ Widget 2x2",
+      "normalizedName": "widget 2x2"
+    },
+    {
+      "id": "3391:2762",
+      "name": "    ↪ Widget 4xN",
+      "normalizedName": "widget 4xn"
+    },
+    {
+      "id": "407:2181",
+      "name": "--",
+      "normalizedName": ""
+    },
+    {
+      "id": "934:8",
+      "name": "Templates",
+      "normalizedName": "templates"
+    },
+    {
+      "id": "934:50",
+      "name": "    ↪ Bottom Sheet",
+      "normalizedName": "bottom sheet"
+    },
+    {
+      "id": "1064:2858",
+      "name": "    ↪ Profile",
+      "normalizedName": "profile"
+    },
+    {
+      "id": "934:9",
+      "name": "--",
+      "normalizedName": ""
+    },
+    {
+      "id": "4492:440",
+      "name": "Reference Screens ",
+      "normalizedName": "reference screens"
+    },
+    {
+      "id": "5160:13545",
+      "name": "Reference Screens 🚧 [Don't use]",
+      "normalizedName": "reference screens 🚧 [don't use]"
+    },
+    {
+      "id": "4492:441",
+      "name": "---",
+      "normalizedName": ""
+    },
+    {
+      "id": "129:14964",
+      "name": "Sheet Template",
+      "normalizedName": "sheet template"
+    }
+  ],
+  "topComponentFamilies": [
+    {
+      "name": "Variant=Initials",
+      "count": 33
+    },
+    {
+      "name": "Type=Secondary",
+      "count": 32
+    },
+    {
+      "name": "Type=Destructive",
+      "count": 32
+    },
+    {
+      "name": "Type=Ghost",
+      "count": 32
+    },
+    {
+      "name": "Type=Primary",
+      "count": 32
+    },
+    {
+      "name": "Type=Icon",
+      "count": 22
+    },
+    {
+      "name": "Variant=Icon",
+      "count": 22
+    },
+    {
+      "name": "Variant=Default",
+      "count": 19
+    },
+    {
+      "name": "Orientation=Horizontal",
+      "count": 11
+    },
+    {
+      "name": "Variant=Image",
+      "count": 11
+    },
+    {
+      "name": "Variant=Logo",
+      "count": 11
+    },
+    {
+      "name": "Variant=Flag",
+      "count": 11
+    },
+    {
+      "name": "State=Disabled",
+      "count": 11
+    },
+    {
+      "name": "State=Enabled",
+      "count": 9
+    },
+    {
+      "name": "Type=Trend",
+      "count": 8
+    },
+    {
+      "name": "Type=Impact",
+      "count": 8
+    },
+    {
+      "name": "State=Skeleton",
+      "count": 8
+    },
+    {
+      "name": "Enabled=True",
+      "count": 7
+    },
+    {
+      "name": "Enabled=False",
+      "count": 7
+    },
+    {
+      "name": "Variant=N/A",
+      "count": 6
+    },
+    {
+      "name": "Type=Regular",
+      "count": 6
+    },
+    {
+      "name": "Type=Large",
+      "count": 6
+    },
+    {
+      "name": "Type=Small",
+      "count": 6
+    },
+    {
+      "name": "Type=Multiple Line",
+      "count": 6
+    },
+    {
+      "name": "State=Loading",
+      "count": 6
+    },
+    {
+      "name": "Type=Option",
+      "count": 5
+    },
+    {
+      "name": "Type=Dropdown",
+      "count": 5
+    },
+    {
+      "name": "Device=Android",
+      "count": 4
+    },
+    {
+      "name": "Device=iOS",
+      "count": 4
+    },
+    {
+      "name": "Compact=False",
+      "count": 4
+    },
+    {
+      "name": "Type=Label",
+      "count": 4
+    },
+    {
+      "name": "Rows=1",
+      "count": 4
+    },
+    {
+      "name": "Compact=True",
+      "count": 4
+    },
+    {
+      "name": "Filter Bar=True",
+      "count": 3
+    },
+    {
+      "name": "Filter Bar=False",
+      "count": 3
+    },
+    {
+      "name": "State=Placeholder",
+      "count": 3
+    },
+    {
+      "name": "Rows=2",
+      "count": 3
+    },
+    {
+      "name": "Rows=3",
+      "count": 3
+    },
+    {
+      "name": "Variant=2 List Rows",
+      "count": 2
+    },
+    {
+      "name": "Type=Neutral",
+      "count": 2
+    },
+    {
+      "name": "Type=Numbered",
+      "count": 2
+    },
+    {
+      "name": "Type=Dotted",
+      "count": 2
+    },
+    {
+      "name": "Orientation=Diagonal",
+      "count": 2
+    },
+    {
+      "name": "State=Error",
+      "count": 2
+    },
+    {
+      "name": "Type=Icon + Label",
+      "count": 2
+    },
+    {
+      "name": "State=Focused",
+      "count": 2
+    },
+    {
+      "name": "State=Typing",
+      "count": 2
+    },
+    {
+      "name": "Variant=Default – Dropdown",
+      "count": 2
+    },
+    {
+      "name": "Variant=Action",
+      "count": 2
+    },
+    {
+      "name": "Variant=Modal – Dropdown",
+      "count": 2
+    }
+  ],
+  "topVariableFamilies": [
+    {
+      "name": "Font Family/Display",
+      "count": 3
+    },
+    {
+      "name": "Font Family/Text",
+      "count": 3
+    },
+    {
+      "name": "Transaction List Row/Vertical Padding",
+      "count": 2
+    },
+    {
+      "name": "Content/Default",
+      "count": 2
+    },
+    {
+      "name": "[Magic] Content/Default",
+      "count": 2
+    },
+    {
+      "name": "[Magic] Content/Subtle",
+      "count": 2
+    },
+    {
+      "name": "[Magic] Content/Disabled",
+      "count": 2
+    },
+    {
+      "name": "[Magic] Border/Default",
+      "count": 2
+    },
+    {
+      "name": "Light/Black Alpha/Black",
+      "count": 1
+    },
+    {
+      "name": "[Magic] Zero",
+      "count": 1
+    },
+    {
+      "name": "[Magic] Half",
+      "count": 1
+    },
+    {
+      "name": "[Magic] X1",
+      "count": 1
+    },
+    {
+      "name": "[Magic] X2",
+      "count": 1
+    },
+    {
+      "name": "[Magic] X3",
+      "count": 1
+    },
+    {
+      "name": "[Magic] X4",
+      "count": 1
+    },
+    {
+      "name": "[Magic] X5",
+      "count": 1
+    },
+    {
+      "name": "[Magic] X6",
+      "count": 1
+    },
+    {
+      "name": "[Magic] X8",
+      "count": 1
+    },
+    {
+      "name": "[Magic] X10",
+      "count": 1
+    },
+    {
+      "name": "[Magic] X12",
+      "count": 1
+    },
+    {
+      "name": "[Magic] X16",
+      "count": 1
+    },
+    {
+      "name": "Black Alpha/Black",
+      "count": 1
+    },
+    {
+      "name": "Overline",
+      "count": 1
+    },
+    {
+      "name": "None",
+      "count": 1
+    },
+    {
+      "name": "Large",
+      "count": 1
+    },
+    {
+      "name": "XLarge",
+      "count": 1
+    },
+    {
+      "name": "Jumbo",
+      "count": 1
+    },
+    {
+      "name": "Component/Large widget (4x5)/width",
+      "count": 1
+    },
+    {
+      "name": "Background/Default",
+      "count": 1
+    },
+    {
+      "name": "Background/Subtle",
+      "count": 1
+    },
+    {
+      "name": "Background/Accent/Primary",
+      "count": 1
+    },
+    {
+      "name": "Surface/Default",
+      "count": 1
+    },
+    {
+      "name": "Surface/Subtle",
+      "count": 1
+    },
+    {
+      "name": "Surface/Disabled",
+      "count": 1
+    },
+    {
+      "name": "Surface/Strong",
+      "count": 1
+    },
+    {
+      "name": "Surface/On Color",
+      "count": 1
+    },
+    {
+      "name": "Surface/Transparent",
+      "count": 1
+    },
+    {
+      "name": "Surface/Accent/Primary",
+      "count": 1
+    },
+    {
+      "name": "Surface/Accent/Primary Subtle",
+      "count": 1
+    },
+    {
+      "name": "Surface/Accent/Primary Subtle On Subtle",
+      "count": 1
+    },
+    {
+      "name": "Surface/Accent/Primary Subtle On Primary",
+      "count": 1
+    },
+    {
+      "name": "Surface/Accent/Primary Strong On Primary",
+      "count": 1
+    },
+    {
+      "name": "Surface/Accent/Selected",
+      "count": 1
+    },
+    {
+      "name": "Surface/Accent/Active",
+      "count": 1
+    },
+    {
+      "name": "Surface/Decorative/01",
+      "count": 1
+    },
+    {
+      "name": "Surface/Decorative/01 Subtle",
+      "count": 1
+    },
+    {
+      "name": "Surface/Decorative/01 Strong",
+      "count": 1
+    },
+    {
+      "name": "Surface/Decorative/05",
+      "count": 1
+    },
+    {
+      "name": "Surface/Decorative/05 Strong",
+      "count": 1
+    },
+    {
+      "name": "Surface/Visualization/Multi Data/03",
+      "count": 1
+    }
+  ]
+}

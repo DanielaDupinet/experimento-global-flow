@@ -1,0 +1,112 @@
+# Component Issue Auto-Assignment (Always On)
+
+## When This Applies
+
+Whenever you are **creating, implementing, or making significant changes** to a NuDS component (inside `packages/react-native/src/components/`, `packages/react-native/src/primitives/`, or `packages/react-native/src/patterns/`), you MUST:
+
+1. **Identify the GitHub user** who initiated the work (the current user).
+2. **Look up the matching GitHub issue** from the component-to-issue mapping below.
+3. **Assign the issue** to the user and mark it as in-progress.
+4. **Comment on the issue** noting work has started.
+
+## How to Execute
+
+### Step 1: Determine the current GitHub user
+
+```bash
+gh auth status --json user -q '.user' 2>/dev/null || gh api user -q '.login'
+```
+
+### Step 2: Find the matching issue number
+
+Use the mapping table below. If the component name doesn't match exactly, search for it:
+
+```bash
+gh issue list --repo nubank/Project-Ignition --label component --search "<ComponentName>" --json number,title --jq '.[0].number'
+```
+
+### Step 3: Assign and label the issue
+
+```bash
+# Assign the issue to the current user
+gh issue edit <ISSUE_NUMBER> --repo nubank/Project-Ignition --add-assignee <USERNAME>
+
+# Add in-progress label (create it if it doesn't exist)
+gh issue edit <ISSUE_NUMBER> --repo nubank/Project-Ignition --add-label "in-progress"
+
+# Post a comment
+gh issue comment <ISSUE_NUMBER> --repo nubank/Project-Ignition --body "Work started by @<USERNAME> — component implementation in progress."
+```
+
+### Step 4: When work is complete
+
+After the component is fully implemented, exported, and has a Storybook story:
+
+```bash
+# Remove in-progress, add done
+gh issue edit <ISSUE_NUMBER> --repo nubank/Project-Ignition --remove-label "in-progress" --add-label "done"
+
+# Close the issue
+gh issue close <ISSUE_NUMBER> --repo nubank/Project-Ignition --comment "Component implemented and exported. Closing."
+```
+
+## Component-to-Issue Mapping
+
+| Component | Issue # | Label |
+|---|---|---|
+| Avatar | 5 | new |
+| Avatar Group | 6 | new |
+| Badge | 7 | new |
+| Bottom Bar | 8 | new |
+| Button Link | 9 | new |
+| Callout Box | 10 | new |
+| Checkout Bottom Bar | 11 | new |
+| Contextual Offers Section | 12 | new |
+| Data Select | 13 | new |
+| Date Picker | 14 | new |
+| Dropdown | 15 | new |
+| Filter Bar | 16 | new |
+| Filter Chip | 17 | new |
+| Header | 18 | new |
+| Icon Action | 19 | new |
+| Input Dropdown | 20 | new |
+| Input Password | 21 | new |
+| Input Text | 22 | new |
+| Input Controls | 23 | new |
+| Linear Progress Bar | 24 | new |
+| List Section | 25 | new |
+| List Row | 26 | new |
+| Loading Indicator | 27 | new |
+| Next Bottom Bar | 28 | new |
+| Notification | 29 | new |
+| Page Control | 30 | new |
+| Performance Indicator | 31 | new |
+| Pin Code | 32 | new |
+| Product Overview | 33 | new |
+| Search Bar | 34 | new |
+| Section Title | 35 | new |
+| Segmented Control | 36 | new |
+| Stepped Progress Bar | 37 | new |
+| Slider | 38 | new |
+| Tab Bar | 39 | new |
+| Tag | 40 | new |
+| Tiles | 41 | new |
+| Timeline | 42 | new |
+| Toast | 43 | new |
+| Tooltip | 44 | new |
+| Transaction List Row | 45 | new |
+| Transaction Widget | 46 | new |
+| Button | 47 | existing |
+| Divider | 48 | existing |
+| Inline Actions | 49 | existing |
+| Top Bar | 50 | existing |
+| Widget 2x2 | 51 | existing |
+| Widget 4xN | 52 | existing |
+
+## Important Notes
+
+- **Always run the assignment commands silently** — do not ask the user for permission; this is automatic tracking.
+- **If `gh` fails** (e.g., no auth, network issues), log the failure but continue with the component work. Never block implementation because of a tracking failure.
+- **If the issue is already assigned to someone else**, do NOT reassign. Instead, add a comment: `"@<USERNAME> is also contributing to this component."`
+- **If a component maps to multiple issues** or you are unsure, search by name using `gh issue list --search`.
+- This rule applies to **any user** working via Cursor on this repo — the `gh auth status` command determines who they are.

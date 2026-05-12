@@ -1,0 +1,76 @@
+name: Automation Smoke Checks
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Create fake gh CLI
+        run: |
+          mkdir -p "$RUNNER_TEMP/fakebin"
+          cat > "$RUNNER_TEMP/fakebin/gh" <<'EOF'
+          #!/usr/bin/env bash
+          set -euo pipefail
+          if [[ "${1:-}" == "auth" && "${2:-}" == "status" ]]; then
+            exit 0
+          fi
+          if [[ "${1:-}" == "auth" && "${2:-}" == "token" ]]; then
+            echo "fake-token"
+            exit 0
+          fi
+          exit 1
+          EOF
+          chmod +x "$RUNNER_TEMP/fakebin/gh"
+          echo "$RUNNER_TEMP/fakebin" >> "$GITHUB_PATH"
+
+      - name: Prepare consumer check target
+        run: |
+          TARGET="$RUNNER_TEMP/consumer repo"
+          mkdir -p "$TARGET/.cursor/skills/nuds-design-system"
+          mkdir -p "$TARGET/.cursor/skills/nuds-consumer-figma-mcp"
+          cat > "$TARGET/.cursor/skills/nuds-design-system/SKILL.md" <<'EOF'
+          base delegates to nuds-consumer-figma-mcp
+          EOF
+          cat > "$TARGET/.cursor/skills/nuds-consumer-figma-mcp/SKILL.md" <<'EOF'
+          mcp delegates to nuds-design-system
+          EOF
+          echo "TARGET=$TARGET" >> "$GITHUB_ENV"
+
+      - name: consumer-setup check mode
+        run: |
+          bash "scripts/consumer-setup.sh" --check --target="$TARGET"
+
+      - name: consumer-setup dry-run mode
+        run: |
+          bash "scripts/consumer-setup.sh" --dry-run --target="$TARGET"
+
+      - name: consumer-setup malformed target fails
+        run: |
+          set +e
+          bash "scripts/consumer-setup.sh" --dry-run --target="/path/that/does/not/exist"
+          CODE=$?
+          set -e
+          if [[ "$CODE" -eq 0 ]]; then
+            echo "Expected malformed target check to fail"
+            exit 1
+          fi
+
+      - name: release dry-run without FIGMA_API_KEY
+        run: |
+          unset FIGMA_API_KEY
+          npm run release -- patch --dry-run

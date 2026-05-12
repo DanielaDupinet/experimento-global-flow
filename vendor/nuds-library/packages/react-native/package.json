@@ -1,0 +1,55 @@
+{
+  "name": "@nu-design-org/nuds-vibecode-react-native",
+  "version": "0.5.3",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "react-native": "src/index.ts",
+  "exports": {
+    ".": {
+      "react-native": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./figma/component-map.json": "./src/figma/component-map.json",
+    "./figma/token-map.json": "./src/figma/token-map.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "assets"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nu-design-org/nuds-library.git",
+    "directory": "packages/react-native"
+  },
+  "dependencies": {
+    "@nu-design-org/nuds-vibecode-theme": "*",
+    "@nu-design-org/nuds-vibecode-tokens": "*"
+  },
+  "bundledDependencies": [
+    "@nu-design-org/nuds-vibecode-tokens",
+    "@nu-design-org/nuds-vibecode-theme"
+  ],
+  "peerDependencies": {
+    "expo-font": ">=14.0.0",
+    "react": ">=18.0.0",
+    "react-native": ">=0.72.0",
+    "react-native-reanimated": ">=3.16.0",
+    "react-native-svg": ">=13.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist"
+  }
+}

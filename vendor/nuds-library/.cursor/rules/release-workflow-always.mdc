@@ -1,0 +1,93 @@
+---
+description: Always apply release and versioning rules when making library changes
+alwaysApply: true
+---
+
+# Release & Versioning Workflow (Always On)
+
+Before committing or pushing library changes, offer the versioning workflow and confirm the bump with the user (see the **project-versioning** skill).
+
+## When to Bump Versions
+
+After any change to **library code** (anything inside `packages/`), a version bump is required so consumers can pick up the update. This includes:
+
+- New or modified components, primitives, patterns, or icons
+- Token value changes (colors, spacing, radii, typography, etc.)
+- Theme changes (light/dark theme updates)
+- Bug fixes in existing components
+- New exports added to `packages/react-native/src/index.ts`
+
+## When NOT to Bump
+
+Infrastructure and tooling changes do **not** require a version bump:
+
+- CI/CD workflows (`.github/workflows/`)
+- Cursor rules or skills (`.cursor/`)
+- Storybook stories (`storybook/`)
+- Scripts (`scripts/`)
+- Root `README.md`, `FINDINGS.md`, or other docs at the repo root
+
+## How to Bump
+
+All 4 packages (`tokens`, `theme`, `react-native`, `react-web`) plus the root `package.json` are versioned in lockstep. Use the release CLI:
+
+```bash
+npm run release:patch   # bug fix or minor addition (0.2.0 → 0.2.1)
+npm run release:minor   # new feature or breaking-ish change (0.2.0 → 0.3.0)
+npm run release:major   # breaking API change (0.2.0 → 1.0.0)
+```
+
+The script (`scripts/release.mjs`) will:
+1. Verify you are on `main` with a clean working tree
+2. Refresh Figma mapping artifacts via `figma:scan` (requires `FIGMA_API_KEY`)
+3. Validate mappings via `figma:validate`
+4. Bump `version` in all 5 `package.json` files
+5. Generate/update `CHANGELOG.md` from the git log (release notes for each version)
+6. Create a commit with subject `release: v<version>` and a body listing what's new, then create an annotated tag (`v<version>`)
+
+To publish to GitHub Packages, push the commit and tag:
+
+```bash
+git push origin main && git push origin v<version>
+```
+
+Or use `--push` to do it all in one step:
+
+```bash
+npm run release -- patch --push
+```
+
+Use `--dry-run` to preview without making changes:
+
+```bash
+npm run release -- patch --dry-run
+```
+
+`--dry-run` does not require `FIGMA_API_KEY` and still runs `figma:validate`.
+
+If you must bypass release-time mapping refresh explicitly:
+
+```bash
+npm run release -- patch --skip-figma-sync
+```
+
+This should be used only when Figma API access is unavailable and must be called out in the PR/release notes.
+
+## Bump Type Guidelines
+
+| Change type | Bump | Example |
+|---|---|---|
+| Bug fix in existing component | `patch` | Fix Button disabled state color |
+| New icon added | `patch` | Add `BellIcon` |
+| New component | `minor` | Add `Checkbox` component |
+| New primitive | `minor` | Add `Pressable` primitive |
+| New token category | `minor` | Add `opacity` tokens |
+| Renamed/removed prop or export | `major` | Rename `label` to `title` on Button |
+| Removed component | `major` | Delete deprecated `OldButton` |
+
+## Important
+
+- **Never manually edit version numbers** in `package.json` files — always use the release CLI.
+- **The release script only runs from `main`** with a clean git state.
+- **Release-time Figma mapping refresh is mandatory by default** (`figma:scan` + `figma:validate`) and requires `FIGMA_API_KEY` for non-dry releases.
+- After the push, GitHub Actions automatically publishes packages to GitHub Packages and creates a GitHub Release with downloadable tarballs.

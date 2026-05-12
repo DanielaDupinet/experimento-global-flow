@@ -1,0 +1,629 @@
+{
+  "schemaVersion": 2,
+  "sourceOfTruth": "packages/react-native/src/figma/token-map.json",
+  "figmaFile": {
+    "key": "dqfrs37AQmkZcC1LpaGcLf",
+    "name": "[WIP] NuDS V3 – Components & Templates"
+  },
+  "strategy": "semantic-first",
+  "notes": [
+    "Map Figma variables to NuDS semantic theme paths.",
+    "Paths now follow the segment-aware semanticColorTokens structure.",
+    "When multiple NuDS paths are valid, use the first item in preferredThemePaths."
+  ],
+  "entries": [
+    {
+      "figmaVariable": "Background/Default",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.background.default"
+      ]
+    },
+    {
+      "figmaVariable": "Background/Subtle",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.background.subtle"
+      ]
+    },
+    {
+      "figmaVariable": "Background/Accent/Primary",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.background.accent.primary"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Default",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.default"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Subtle",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.subtle"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Subtle On Subtle",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.subtleOnSubtle"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Disabled",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.disabled"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Disabled Strong",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.disabledStrong"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Strong",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.strong"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Inverse",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.inverse"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/On Color",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.onColor"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Transparent",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.transparent"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Floating",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.floating"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Accent/Primary",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.accent.primary"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Accent/Primary Subtle",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.accent.primarySubtle"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Accent/Primary Subtle On Subtle",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.accent.primarySubtleOnSubtle"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Accent/Primary Subtle On Primary",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.accent.primarySubtleOnPrimary"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Accent/Primary Strong On Primary",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.accent.primaryStrongOnPrimary"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Accent/Selected",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.accent.selected"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Accent/Selected Subtle",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.accent.selectedSubtle"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Accent/Selected Disabled",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.accent.selectedDisabled"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Accent/Active",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.accent.active"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Accent/Active On Floating",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.accent.activeOnFloating"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Feedback/Neutral",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.feedback.neutral"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Feedback/Success",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.feedback.success"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Feedback/Attention",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.feedback.attention"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Feedback/Critical",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.feedback.critical"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Overlay/Default",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.overlay.default"
+      ]
+    },
+    {
+      "figmaVariable": "Surface/Overlay/Strongest",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.surface.overlay.strongest"
+      ]
+    },
+    {
+      "figmaVariable": "Border/Default",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.border.default"
+      ]
+    },
+    {
+      "figmaVariable": "Border/Strong",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.border.strong"
+      ]
+    },
+    {
+      "figmaVariable": "Border/Disabled",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.border.disabled"
+      ]
+    },
+    {
+      "figmaVariable": "Border/Disabled Strong",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.border.disabledStrong"
+      ]
+    },
+    {
+      "figmaVariable": "Border/Accent/Primary",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.border.accent.primary"
+      ]
+    },
+    {
+      "figmaVariable": "Border/Accent/Selected",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.border.accent.selected"
+      ]
+    },
+    {
+      "figmaVariable": "Border/Accent/Active",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.border.accent.active"
+      ]
+    },
+    {
+      "figmaVariable": "Border/Feedback/Critical",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.border.feedback.critical"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Default",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.default"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Subtle",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.subtle"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Disabled",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.disabled"
+      ]
+    },
+    {
+      "figmaVariable": "Content/On Color",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.onColor"
+      ]
+    },
+    {
+      "figmaVariable": "Content/On Inverse",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.onInverse"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Accent/Primary",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.accent.primary"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Feedback/Success",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.feedback.success"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Feedback/Critical",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.feedback.critical"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Feedback/Attention",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.feedback.attention"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Feedback/Neutral",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.feedback.neutral"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Decorative/01",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.decorative[\"01\"]"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Decorative/02",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.decorative[\"02\"]"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Decorative/03",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.decorative[\"03\"]"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Decorative/04",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.decorative[\"04\"]"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Decorative/05",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.decorative[\"05\"]"
+      ]
+    },
+    {
+      "figmaVariable": "Content/Decorative/06",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.content.decorative[\"06\"]"
+      ]
+    },
+    {
+      "figmaVariable": "Component/TopBar/Image Overlay",
+      "category": "color",
+      "preferredThemePaths": [
+        "theme.color.component.topBar.imageOverlay"
+      ]
+    },
+    {
+      "figmaVariable": "Spacing/Zero",
+      "category": "spacing",
+      "preferredThemePaths": [
+        "theme.spacing[0]"
+      ],
+      "aliases": [
+        "spacing.zero"
+      ]
+    },
+    {
+      "figmaVariable": "Spacing/X1",
+      "category": "spacing",
+      "preferredThemePaths": [
+        "theme.spacing[1]"
+      ],
+      "aliases": [
+        "spacing.x1"
+      ]
+    },
+    {
+      "figmaVariable": "Spacing/X2",
+      "category": "spacing",
+      "preferredThemePaths": [
+        "theme.spacing[2]"
+      ],
+      "aliases": [
+        "spacing.x2"
+      ]
+    },
+    {
+      "figmaVariable": "Spacing/X3",
+      "category": "spacing",
+      "preferredThemePaths": [
+        "theme.spacing[3]"
+      ],
+      "aliases": [
+        "spacing.x3"
+      ]
+    },
+    {
+      "figmaVariable": "Spacing/X4",
+      "category": "spacing",
+      "preferredThemePaths": [
+        "theme.spacing[4]"
+      ],
+      "aliases": [
+        "spacing.x4"
+      ]
+    },
+    {
+      "figmaVariable": "Spacing/X5",
+      "category": "spacing",
+      "preferredThemePaths": [
+        "theme.spacing[5]"
+      ],
+      "aliases": [
+        "spacing.x5"
+      ]
+    },
+    {
+      "figmaVariable": "Spacing/XLarge",
+      "category": "spacing",
+      "preferredThemePaths": [
+        "theme.spacing[6]"
+      ],
+      "aliases": [
+        "[Magic] XLarge"
+      ]
+    },
+    {
+      "figmaVariable": "Border Radius/None",
+      "category": "radius",
+      "preferredThemePaths": [
+        "theme.radius.none"
+      ],
+      "aliases": [
+        "border.radius.geometry.none"
+      ]
+    },
+    {
+      "figmaVariable": "Border Radius/Small",
+      "category": "radius",
+      "preferredThemePaths": [
+        "theme.radius.sm"
+      ]
+    },
+    {
+      "figmaVariable": "Border Radius/Medium",
+      "category": "radius",
+      "preferredThemePaths": [
+        "theme.radius.md"
+      ],
+      "aliases": [
+        "border.radius.geometry.medium"
+      ]
+    },
+    {
+      "figmaVariable": "Border Radius/Large",
+      "category": "radius",
+      "preferredThemePaths": [
+        "theme.radius.lg"
+      ]
+    },
+    {
+      "figmaVariable": "Border Radius/XLarge",
+      "category": "radius",
+      "preferredThemePaths": [
+        "theme.radius.xl"
+      ],
+      "aliases": [
+        "border.radius.geometry.xlarge"
+      ]
+    },
+    {
+      "figmaVariable": "Border Radius/2XLarge",
+      "category": "radius",
+      "preferredThemePaths": [
+        "theme.radius.xxl"
+      ],
+      "aliases": [
+        "border.radius.geometry.2xlarge"
+      ]
+    },
+    {
+      "figmaVariable": "Border Radius/Full",
+      "category": "radius",
+      "preferredThemePaths": [
+        "theme.radius.full"
+      ],
+      "aliases": [
+        "border.radius.geometry.jumbo"
+      ]
+    },
+    {
+      "figmaVariable": "Label/2XSmall/Default",
+      "category": "typography",
+      "preferredThemePaths": [
+        "theme.typography.label2XSmallDefault"
+      ],
+      "aliases": [
+        "[Magic] Label/2XSmall/Default"
+      ]
+    },
+    {
+      "figmaVariable": "Label/XSmall/Default",
+      "category": "typography",
+      "preferredThemePaths": [
+        "theme.typography.labelXSmallDefault"
+      ],
+      "aliases": [
+        "[Magic] Label/XSmall/Default"
+      ]
+    },
+    {
+      "figmaVariable": "Label/XSmall/Strong",
+      "category": "typography",
+      "preferredThemePaths": [
+        "theme.typography.labelXSmallStrong"
+      ],
+      "aliases": [
+        "[Magic] Label/XSmall/Strong"
+      ]
+    },
+    {
+      "figmaVariable": "Label/Small/Default",
+      "category": "typography",
+      "preferredThemePaths": [
+        "theme.typography.labelSmallDefault"
+      ],
+      "aliases": [
+        "[Magic] Label/Small/Default"
+      ]
+    },
+    {
+      "figmaVariable": "Label/Small/Strong",
+      "category": "typography",
+      "preferredThemePaths": [
+        "theme.typography.labelSmallStrong"
+      ],
+      "aliases": [
+        "[Magic] Label/Small/Strong"
+      ]
+    },
+    {
+      "figmaVariable": "Subtitle/Medium/Strong",
+      "category": "typography",
+      "preferredThemePaths": [
+        "theme.typography.subtitleMediumStrong"
+      ],
+      "aliases": [
+        "[Magic] Subtitle/Medium/Strong"
+      ]
+    },
+    {
+      "figmaVariable": "Title/XSmall",
+      "category": "typography",
+      "preferredThemePaths": [
+        "theme.typography.titleXSmall"
+      ],
+      "aliases": [
+        "[Magic] Title/XSmall"
+      ]
+    },
+    {
+      "figmaVariable": "Title/Medium",
+      "category": "typography",
+      "preferredThemePaths": [
+        "theme.typography.titleMedium"
+      ],
+      "aliases": [
+        "[Magic] Title/Medium"
+      ]
+    },
+    {
+      "figmaVariable": "Elevation/Default",
+      "category": "elevation",
+      "preferredThemePaths": [
+        "theme.elevation.level1"
+      ],
+      "aliases": [
+        "[Magic] Elevation/Default",
+        "[Magic] Default Elevation"
+      ]
+    },
+    {
+      "figmaVariable": "Elevation/On Color",
+      "category": "elevation",
+      "preferredThemePaths": [
+        "theme.elevation.level1"
+      ],
+      "aliases": [
+        "[Magic] Elevation/On Color"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+---
+description: Always apply local React Native agent skills
+alwaysApply: true
+---
+
+# React Native Skills (Always On)
+
+- For any React Native task in this project, first consult:
+  - `.cursor/vendor/agent-skills/skills/react-native-skills/SKILL.md`
+  - `.cursor/vendor/agent-skills/skills/react-native-skills/AGENTS.md`
+  - Relevant rule files in `.cursor/vendor/agent-skills/skills/react-native-skills/rules/`
+- Follow these files as the default implementation and review standard for architecture, UI, state, rendering, list performance, animation, and navigation decisions.
+- Do not bypass these React Native skill rules unless the user explicitly asks to override them.

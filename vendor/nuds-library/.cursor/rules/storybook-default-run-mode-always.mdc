@@ -1,0 +1,31 @@
+---
+description: Default app runs to Storybook local mode unless explicitly overridden
+alwaysApply: true
+---
+
+# Storybook Default Run Mode
+
+When running this project (iOS simulator, Android emulator, or generic "run the app"), use **Storybook** in a **development build** by default — not Expo Go.
+
+## Default behavior
+
+- Treat "run the app" as **Storybook UI** unless the user explicitly asks for the regular app UI.
+- Use **local source mode** by default:
+  - `EXPO_PUBLIC_STORYBOOK_ENABLED=true`
+  - `EXPO_PUBLIC_NUDS_SOURCE_MODE=local`
+- Prefer scripts that keep the **simulator in sync** (Metro **Fast Refresh**; `CI=` unset):
+  - `npm run storybook:ios:live` — iOS dev build + Metro (day-to-day)
+  - `npm run storybook:live` — Metro only (app already installed)
+  - `npm run storybook:ios:sync` — after pull / deps / native changes (`npm install` + `pod install` + `storybook:ios:live`)
+- Legacy aliases (same env; may inherit `CI=true` from the environment): `storybook`, `storybook:ios`, `storybook:local`, `storybook:local:ios`
+
+## Explicit opt-in only
+
+- Only use **package mode** when the user explicitly asks for package/published behavior:
+  - `npm run storybook:package`
+  - `npm run storybook:package:ios`
+- Only run the **non-Storybook app UI** when the user explicitly asks not to use Storybook.
+
+## Interaction rule
+
+- If the user request is ambiguous, default to Storybook local mode and state that you are doing so.

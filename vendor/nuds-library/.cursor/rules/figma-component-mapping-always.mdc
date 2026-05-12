@@ -1,0 +1,44 @@
+# Figma Component + Token Mapping (Always On)
+
+## Purpose
+
+When consuming Figma MCP/REST output, agents must map Figma components and
+variables to NuDS exports/theme paths using the shipped manifests.
+
+## Source of Truth
+
+- `packages/react-native/src/figma/component-map.json`
+- `packages/react-native/src/figma/token-map.json`
+
+Consumer repos can read published package subpaths:
+
+- `@nubank/nuds-vibecode-react-native/figma/component-map.json`
+- `@nubank/nuds-vibecode-react-native/figma/token-map.json`
+
+## Component Resolution Order
+
+1. Match `bdcNames`
+2. Match `figmaComponentNames`
+3. Match `figmaPageAliases`
+4. Match normalized alias/name fallback
+5. Apply `usage.requiredProps`, `usage.variantMap`, and `usage.fallbackRules`
+
+If no match:
+
+- choose closest `status=partial` entry when confidence is acceptable
+- otherwise keep output explicit with TODO mapping notes
+- do not invent new NuDS components silently
+
+## Token Resolution Order
+
+1. Use `preferredThemePaths[0]`
+2. Fallback to the next path in `preferredThemePaths`
+3. Check `aliases` for MCP naming drift
+4. Always prefer semantic theme paths over raw values
+
+## Non-Negotiable Rules
+
+1. No hardcoded colors or spacing values in generated NuDS usage.
+2. Prefer NuDS semantic theme references (for example `theme.color.content.primary`).
+3. Mapping artifacts must be updated whenever new DS exports are added or renamed.
+4. Every mapped component decision must include how to use the component, not just which one.

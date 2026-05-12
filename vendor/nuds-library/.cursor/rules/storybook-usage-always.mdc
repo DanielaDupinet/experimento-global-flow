@@ -1,0 +1,80 @@
+---
+description: How to run and use Storybook in this project
+alwaysApply: true
+---
+
+# Running Storybook
+
+## Quick Start
+
+```bash
+npm install               # install dependencies (if not done)
+npm run storybook:live    # Metro + Storybook (Fast Refresh; see below)
+npm run storybook:ios:live   # build dev app + iOS simulator + Metro (preferred for day-to-day)
+```
+
+Pass extra flags to the iOS script when needed, e.g. `npm run storybook:ios:live -- --port 8082`.
+
+### Keep the iOS simulator in sync with code
+
+1. **Use the `:live` scripts** (`storybook:live`, `storybook:ios:live`). They set `CI=` so Metro is **not** in “CI mode” (reloads / Fast Refresh stay on). Some environments (including IDE-integrated terminals) export `CI=true`, which disables watch-based updates — the simulator then looks “stuck” until you restart Metro.
+2. **Leave that terminal running** while you edit `packages/**`, `storybook/**`, `App.js`, and `.rnstorybook/**`. `metro.config.js` already **`watchFolders`** the `packages/` workspace; saves should trigger Fast Refresh on the simulator.
+3. **New story files** (`storybook/**/*.stories.tsx`): if a story does not appear, restart Metro (`Ctrl+C`, then `npm run storybook:live` or `storybook:ios:live`).
+4. **After `git pull` or dependency / native changes**: run **`npm run storybook:ios:sync`** (runs `npm install`, `pod install` under `ios/`, then `storybook:ios:live`). Use this when `package-lock.json`, `ios/Podfile`, or native modules change.
+5. **Stale `dist` / “element type is invalid”**: run `npm run -w @nu-design-org/nuds-vibecode-react-native build`, then restart Metro.
+
+Both scripts set `EXPO_PUBLIC_STORYBOOK_ENABLED=true`, which:
+1. Tells Metro (via `withStorybook` in `metro.config.js`) to bundle story files.
+2. Makes `App.js` render `StorybookUIRoot` instead of the main app.
+
+## How It Works
+
+- **Config dir**: `.rnstorybook/` (not `.storybook/`).
+- **Metro**: `metro.config.js` wraps the Expo config with `@storybook/react-native/metro/withStorybook`, enabled only when the env var is `"true"`.
+- **Entry point**: `App.js` conditionally imports `.rnstorybook/index.tsx` and renders the on-device Storybook UI.
+- **Theme decorator**: `.rnstorybook/preview.tsx` wraps every story in `<NuDSThemeProvider mode="light">`.
+
+## Story Files
+
+- All stories live in `storybook/` at the repo root.
+- Naming convention: `storybook/<ComponentName>.stories.tsx`.
+- Stories use CSF (Component Story Format) with `title`, `component`, `args`, and `render`.
+- Title prefixes: `Tokens/`, `Primitives/`, `Components/`, `Patterns/`, `Example/`.
+
+### Creating a New Story
+
+1. Create `storybook/<ComponentName>.stories.tsx`.
+2. Use the standard CSF format:
+
+```tsx
+import type { Meta, StoryObj } from "@storybook/react-native";
+import { ComponentName } from "@nubank/nuds-vibecode-react-native";
+
+const meta: Meta<typeof ComponentName> = {
+  title: "Components/ComponentName",
+  component: ComponentName,
+  args: { /* default props */ },
+};
+export default meta;
+
+type Story = StoryObj<typeof ComponentName>;
+
+export const Default: Story = {};
+
+export const Variant: Story = {
+  args: { variant: "secondary" },
+};
+```
+
+3. Restart the Storybook dev server (`npm run storybook`) — Metro picks up new files on restart.
+
+## Addons
+
+- `@storybook/addon-ondevice-actions` — logs action events on device.
+- `@storybook/addon-ondevice-controls` — installed but not in `main.ts` addons array; add it there to enable knobs.
+
+## Troubleshooting
+
+- **Stories not appearing**: make sure the file matches the glob `storybook/**/*.stories.@(ts|tsx)` in `.rnstorybook/main.ts` and restart Metro.
+- **Theme not applied**: verify `.rnstorybook/preview.tsx` decorator is intact.
+- **Regular app loads instead of Storybook**: confirm `EXPO_PUBLIC_STORYBOOK_ENABLED=true` is set; run via the `storybook` script, not `expo start`.

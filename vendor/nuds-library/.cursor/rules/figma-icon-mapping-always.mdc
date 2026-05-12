@@ -1,0 +1,97 @@
+# Figma Icon Mapping (Always On)
+
+## Purpose
+
+When generating code from Figma designs (via the Figma MCP or any Figma-sourced context), **never create new icon SVG components** without first checking whether an existing NuDS icon already covers the need.
+
+## Decision Tree
+
+```
+Figma layer contains an icon
+  │
+  ├─ 1. Normalize the Figma name (see "Name Matching" below)
+  │
+  ├─ 2. Search the icon catalog
+  │     File: .cursor/skills/nuds-library-usage/icon-catalog.md
+  │     Search by: normalized name, aliases, semantic keywords
+  │
+  ├─ 3a. MATCH FOUND → Use the existing `<XxxIcon />` component
+  │
+  ├─ 3b. CLOSE MATCH (similar concept, different name)
+  │      → Use the closest existing icon
+  │      → Add a code comment: `{/* Figma: "original-name" → mapped to XxxIcon */}`
+  │
+  ├─ 3c. NO MATCH → Use `<PlaceholderIcon />` as a temporary stand-in
+  │      → Add a TODO comment: `{/* TODO: icon "original-name" not found in NuDS — needs new icon or manual mapping */}`
+  │      → Do NOT create a new SVG icon component without explicit user confirmation
+  │
+  └─ 3d. USER CONFIRMS new icon is needed
+         → Follow the icon creation template in .cursor/skills/nuds-library-usage/component-patterns.md
+         → Use the SVG path data from the Figma design (fetch via MCP if available)
+         → Register in icons/index.ts AND packages/react-native/src/index.ts
+```
+
+## Name Matching Rules
+
+Figma layer names for icons come in many formats. Normalize before matching:
+
+### Step 1 — Strip common prefixes
+Remove these prefixes (case-insensitive): `ic/`, `icon/`, `icons/`, `Icon/`, `ic_`, `icon_`, `ico-`, `nuds/`, `nuds-icon/`
+
+### Step 2 — Normalize separators
+Convert any of these to PascalCase: kebab-case (`arrow-back`), snake_case (`arrow_back`), slash-separated (`arrow/back`), space-separated (`arrow back`)
+
+### Step 3 — Append `Icon` suffix
+If the result doesn't already end in `Icon`, append it. Example: `arrow-back` → `ArrowBackIcon`
+
+### Step 4 — Handle variants
+Figma may use suffixes like `/filled`, `-filled`, `/outline`, `-outline`, `-off`, `-on`. Map these:
+- `filled` → try `XxxFilledIcon` first, then `XxxIcon`
+- `outline` → try `XxxIcon` (NuDS icons are outline by default)
+- `off` → try `XxxOffIcon`
+- `on` → try `XxxOnIcon`
+
+### Examples
+
+| Figma layer name | Normalized | NuDS match |
+|---|---|---|
+| `ic/arrow-back` | `ArrowBackIcon` | `ArrowBackIcon` |
+| `Icons/chevron-right` | `ChevronRightIcon` | `ChevronRightIcon` |
+| `icon/close` | `CloseIcon` | `CloseIcon` |
+| `ic/eye-off` | `EyeOffIcon` | `EyeOffIcon` |
+| `icon/bell/filled` | `BellFilledIcon` | `BellFilledIcon` |
+| `nuds-icon/settings` | `SettingsIcon` | `SettingsIcon` |
+| `ic/heart-filled` | `HeartFilledIcon` | `HeartFilledIcon` |
+| `Icons/visibility_on` | `VisibilityOnIcon` | `VisibilityOnIcon` |
+
+## Non-Negotiable Rules
+
+1. **Never inline raw SVG** in component files — always use an `<XxxIcon />` component from `@nubank/nuds-vibecode-react-native`.
+2. **Never create a duplicate icon** — if the icon exists under a different name, use the existing one.
+3. **Always check the catalog first** — read `.cursor/skills/nuds-library-usage/icon-catalog.md` before deciding an icon doesn't exist.
+4. **Use `PlaceholderIcon` for unknowns** — never silently skip or invent an icon. Use `PlaceholderIcon` and leave a TODO.
+5. **Respect `IconProps`** — all icons accept `{ size?: number; color?: string; opacity?: number }`. Default size is `20`, default color is `theme.color.content.primary`.
+6. **Fetch SVG assets from Figma when creating new icons** — when the user confirms a new icon is needed, use the Figma MCP to fetch the actual SVG data from the design. Do not approximate or hand-draw paths.
+
+## How Icons Are Used in NuDS Components
+
+Icons are passed as `React.ReactNode` to component props:
+
+```tsx
+// Button
+<Button label="Back" leadingIcon={<ArrowBackIcon size={20} />} />
+
+// TopBar
+<TopBar leading={<ArrowBackIcon size={24} />} trailing={<SettingsIcon size={24} />} />
+
+// Inline usage
+<ChevronRightIcon size={16} color={theme.color.content.secondary} />
+```
+
+## Quick Reference — Icon Count
+
+There are **~335 registered icons** in the NuDS library. The full searchable catalog with descriptions and aliases is at:
+
+```
+.cursor/skills/nuds-library-usage/icon-catalog.md
+```

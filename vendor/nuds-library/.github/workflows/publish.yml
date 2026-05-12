@@ -1,0 +1,78 @@
+name: Publish Packages to GitHub Packages
+
+on:
+  # Trigger on version tags like v0.1.0, v1.2.3
+  push:
+    tags:
+      - "v*"
+
+  # Allow manual trigger from GitHub UI
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@nu-design-org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build all packages (tokens → theme → react-native → react-web)
+        run: npm run build
+
+      # ── Publish to GitHub Packages registry ──
+
+      - name: Publish @nu-design-org/nuds-vibecode-tokens
+        run: npm publish --workspace=packages/tokens
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish @nu-design-org/nuds-vibecode-theme
+        run: npm publish --workspace=packages/theme
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish @nu-design-org/nuds-vibecode-react-native
+        run: npm publish --workspace=packages/react-native
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish @nu-design-org/nuds-vibecode-react-web
+        run: npm publish --workspace=packages/react-web
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── Create GitHub Release with tarball assets ──
+
+      - name: Pack tarballs
+        run: |
+          mkdir -p release-assets
+          cd packages/tokens && npm pack --pack-destination ../../release-assets && cd ../..
+          cd packages/theme && npm pack --pack-destination ../../release-assets && cd ../..
+          cd packages/react-native && npm pack --pack-destination ../../release-assets && cd ../..
+          cd packages/react-web && npm pack --pack-destination ../../release-assets && cd ../..
+          echo "## Tarball assets"
+          ls -lh release-assets/
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          gh release create "$TAG" \
+            --title "Release $TAG" \
+            --generate-notes \
+            release-assets/*.tgz

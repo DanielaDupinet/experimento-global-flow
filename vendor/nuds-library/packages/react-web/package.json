@@ -1,0 +1,47 @@
+{
+  "name": "@nu-design-org/nuds-vibecode-react-web",
+  "version": "0.5.3",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "react-native": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nu-design-org/nuds-library.git",
+    "directory": "packages/react-web"
+  },
+  "dependencies": {
+    "@nu-design-org/nuds-vibecode-theme": "*",
+    "@nu-design-org/nuds-vibecode-tokens": "*"
+  },
+  "bundledDependencies": [
+    "@nu-design-org/nuds-vibecode-tokens",
+    "@nu-design-org/nuds-vibecode-theme"
+  ],
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist"
+  }
+}

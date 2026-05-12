@@ -1,0 +1,708 @@
+{
+  "schemaVersion": 2,
+  "sourceOfTruth": "packages/react-native/src/figma/component-map.json",
+  "figmaFile": {
+    "key": "dqfrs37AQmkZcC1LpaGcLf",
+    "name": "[WIP] NuDS V3 – Components & Templates"
+  },
+  "resolutionOrder": ["bdcName", "figmaComponentName", "figmaPageAlias", "normalizedAlias"],
+  "statusRules": {
+    "mapped": "Has direct component/page/bdc identity and explicit usage translation.",
+    "partial": "No stable direct identity in Figma published components; inferred from composition or primitives."
+  },
+  "entries": [
+    {
+      "nudsExport": "Box",
+      "layer": "primitive",
+      "sourcePath": "packages/react-native/src/primitives/Box/Box.tsx",
+      "status": "partial",
+      "statusReason": "Structural primitive inferred from container frames.",
+      "figmaPageAliases": [],
+      "figmaComponentNames": [],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use Box for themed containers/surfaces.", "Use plain View only when no themed surface is required."],
+        "examples": ["<Box surface=\"screen\">...</Box>"]
+      }
+    },
+    {
+      "nudsExport": "Divider",
+      "layer": "primitive",
+      "sourcePath": "packages/react-native/src/primitives/Divider/Divider.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Divider"],
+      "figmaComponentNames": ["[Magic] Divider"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use between stacked rows/sections when Figma includes a separator stroke."],
+        "examples": ["<Divider />"]
+      }
+    },
+    {
+      "nudsExport": "Field",
+      "layer": "primitive",
+      "sourcePath": "packages/react-native/src/primitives/Field/Field.tsx",
+      "status": "partial",
+      "statusReason": "Usually represented in Figma as composed input components.",
+      "figmaPageAliases": ["Input Controls"],
+      "figmaComponentNames": [],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Wrap input controls with Field when MCP output contains label/hint/error structure."],
+        "examples": ["<Field label=\"Email\"><TextField /></Field>"]
+      }
+    },
+    {
+      "nudsExport": "NText",
+      "layer": "primitive",
+      "sourcePath": "packages/react-native/src/primitives/Text/NText.tsx",
+      "status": "partial",
+      "statusReason": "Derived from typography token/style mapping, not standalone DS component identities.",
+      "figmaPageAliases": [],
+      "figmaComponentNames": [],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["variant"],
+        "variantMap": [],
+        "fallbackRules": ["Always map textual layers to NText with the nearest typography token variant."],
+        "examples": ["<NText variant=\"labelSmallStrong\">Label</NText>"]
+      }
+    },
+    {
+      "nudsExport": "Avatar",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/Avatar/Avatar.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Avatar"],
+      "figmaComponentNames": ["[Magic] Avatar"],
+      "bdcNames": ["|avatar|v2"],
+      "usage": {
+        "requiredProps": ["variant", "size"],
+        "variantMap": [
+          { "figma": { "Variant": "Image" }, "props": { "variant": "image" } },
+          { "figma": { "Variant": "Initials" }, "props": { "variant": "initials" } },
+          { "figma": { "Variant": "Icon" }, "props": { "variant": "icon" } },
+          { "figma": { "Variant": "Logo" }, "props": { "variant": "logo" } }
+        ],
+        "fallbackRules": ["If Figma variant is missing, default to variant=image and map badge if present."],
+        "examples": ["<Avatar variant=\"image\" size=\"medium\" />"]
+      }
+    },
+    {
+      "nudsExport": "AvatarGroup",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/AvatarGroup/AvatarGroup.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Avatar Group"],
+      "figmaComponentNames": ["[Magic] Avatar Group"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["size"],
+        "variantMap": [{ "figma": { "Orientation": "Horizontal" }, "props": { "orientation": "horizontal" } }, { "figma": { "Orientation": "Diagonal" }, "props": { "orientation": "diagonal" } }],
+        "fallbackRules": ["Use when MCP output indicates multi-avatar cluster/stack."],
+        "examples": ["<AvatarGroup size=\"small\" orientation=\"horizontal\">...</AvatarGroup>"]
+      }
+    },
+    {
+      "nudsExport": "Badge",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/Badge/Badge.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Badge"],
+      "figmaComponentNames": ["[Magic] Badge"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["label"],
+        "variantMap": [],
+        "fallbackRules": ["Use badge for compact label/chip annotations and notification counters."],
+        "examples": ["<Badge label=\"New\" />"]
+      }
+    },
+    {
+      "nudsExport": "BottomBar",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/BottomBar/BottomBar.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Bottom Bar"],
+      "figmaComponentNames": ["[Magic] Bottom Bar"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for persistent bottom navigation/action surfaces."],
+        "examples": ["<BottomBar />"]
+      }
+    },
+    {
+      "nudsExport": "BottomSheet",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/BottomSheet/BottomSheet.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Bottom Sheet"],
+      "figmaComponentNames": ["[Magic] Bottom Sheet"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["isOpen", "onClose"],
+        "variantMap": [],
+        "fallbackRules": ["Map prompt/action modal layouts to BottomSheet when anchored from bottom."],
+        "examples": ["<BottomSheet isOpen onClose={() => {}} />"]
+      }
+    },
+    {
+      "nudsExport": "Button",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/Button/Button.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Button"],
+      "figmaComponentNames": ["[Magic] Button"],
+      "bdcNames": ["|button|v2"],
+      "variantMap": [
+        { "figma": { "Type": "Primary" }, "props": { "variant": "primary" } },
+        { "figma": { "Type": "Secondary" }, "props": { "variant": "secondary" } },
+        { "figma": { "Type": "Ghost" }, "props": { "variant": "ghost" } },
+        { "figma": { "Type": "Destructive" }, "props": { "variant": "destructive" } },
+        { "figma": { "State": "Loading" }, "props": { "loading": true } },
+        { "figma": { "Expanded": "True" }, "props": { "expanded": true } },
+        { "figma": { "Compact": "True" }, "props": { "compact": true } }
+      ],
+      "usage": {
+        "requiredProps": ["label"],
+        "variantMap": [
+          { "figma": { "Type": "Primary" }, "props": { "variant": "primary" } },
+          { "figma": { "Type": "Secondary" }, "props": { "variant": "secondary" } },
+          { "figma": { "Type": "Ghost" }, "props": { "variant": "ghost" } },
+          { "figma": { "Type": "Destructive" }, "props": { "variant": "destructive" } }
+        ],
+        "fallbackRules": ["If Type is missing, use variant=primary.", "If State contains Loading, set loading=true."],
+        "examples": ["<Button label=\"Continue\" variant=\"primary\" />"]
+      }
+    },
+    {
+      "nudsExport": "ButtonLink",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/ButtonLink/ButtonLink.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Button Link"],
+      "figmaComponentNames": ["[Magic] Button Link"],
+      "bdcNames": ["|button-link|v2"],
+      "usage": {
+        "requiredProps": ["label"],
+        "variantMap": [],
+        "fallbackRules": ["Prefer ButtonLink when Figma indicates text-link CTA in action rows."],
+        "examples": ["<ButtonLink label=\"See more\" onPress={() => {}} />"]
+      }
+    },
+    {
+      "nudsExport": "CalloutBox",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/CalloutBox/CalloutBox.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Callout Box"],
+      "figmaComponentNames": ["[Magic] Callout Box"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["title"],
+        "variantMap": [],
+        "fallbackRules": ["Use for informational/attention cards with an icon + text emphasis."],
+        "examples": ["<CalloutBox title=\"Heads up\" />"]
+      }
+    },
+    {
+      "nudsExport": "CheckoutBottomBar",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/CheckoutBottomBar/CheckoutBottomBar.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Checkout Bottom Bar"],
+      "figmaComponentNames": ["[Magic] Checkout Bottom Bar"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for checkout summary + primary action bottom area."],
+        "examples": ["<CheckoutBottomBar />"]
+      }
+    },
+    {
+      "nudsExport": "CircularLoader",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/CircularLoader/CircularLoader.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Loading Indicator"],
+      "figmaComponentNames": ["[Magic] Circular Loader"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for standalone loading indicators.", "Prefer LoadingButton when loading state belongs to a Button."],
+        "examples": ["<CircularLoader />"]
+      }
+    },
+    {
+      "nudsExport": "DataSelect",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/DataSelect/DataSelect.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Data Select"],
+      "figmaComponentNames": ["[Magic] Data Select"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["options"],
+        "variantMap": [],
+        "fallbackRules": ["Use for dataset-driven selection controls."],
+        "examples": ["<DataSelect options={options} />"]
+      }
+    },
+    {
+      "nudsExport": "DatePicker",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/DatePicker/DatePicker.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Date Picker"],
+      "figmaComponentNames": ["[Magic] Date Picker"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use when MCP signals date calendar/input interaction."],
+        "examples": ["<DatePicker />"]
+      }
+    },
+    {
+      "nudsExport": "FilterBar",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/FilterBar/FilterBar.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Filter Bar"],
+      "figmaComponentNames": ["[Magic] Filter Bar"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["filters"],
+        "variantMap": [],
+        "fallbackRules": ["Use when Figma layer includes top filter chips/summary strip."],
+        "examples": ["<FilterBar filters={filters} />"]
+      }
+    },
+    {
+      "nudsExport": "FilterChip",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/FilterBar/FilterChip.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Filter Chip"],
+      "figmaComponentNames": ["[Magic] Filter Chip"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["label"],
+        "variantMap": [],
+        "fallbackRules": ["Use for individual selectable filter items."],
+        "examples": ["<FilterChip label=\"Status\" selected />"]
+      }
+    },
+    {
+      "nudsExport": "FilterDropdownPanel",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/FilterBar/FilterDropdownPanel.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Filter Bar", "Dropdown"],
+      "figmaComponentNames": ["Filter Bar=True, Results=Summary", "Filter Bar=True, Results=No Results"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["sections"],
+        "variantMap": [],
+        "fallbackRules": ["Use when FilterBar expands into dropdown/panel content."],
+        "examples": ["<FilterDropdownPanel sections={sections} />"]
+      }
+    },
+    {
+      "nudsExport": "Header",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/Header/Header.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Header"],
+      "figmaComponentNames": ["[Magic] Header"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for section/screen header composition not top navigation."],
+        "examples": ["<Header />"]
+      }
+    },
+    {
+      "nudsExport": "InlineActions",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/InlineActions/InlineActions.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Inline Actions"],
+      "figmaComponentNames": ["[Magic] Inline Actions"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["actions"],
+        "variantMap": [],
+        "fallbackRules": ["Use for horizontal icon/text action groups in cards/rows."],
+        "examples": ["<InlineActions actions={actions} />"]
+      }
+    },
+    {
+      "nudsExport": "ListRow",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/ListRow/ListRow.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["List Row"],
+      "figmaComponentNames": ["[Magic] List Row"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["label"],
+        "variantMap": [],
+        "fallbackRules": ["Use for generic tappable list item rows."],
+        "examples": ["<ListRow label=\"Row\" />"]
+      }
+    },
+    {
+      "nudsExport": "ListSection",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/ListSection/ListSection.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["List Section"],
+      "figmaComponentNames": ["[Magic] List Section"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["title"],
+        "variantMap": [],
+        "fallbackRules": ["Use for grouped list rows with section title."],
+        "examples": ["<ListSection title=\"Recent\">...</ListSection>"]
+      }
+    },
+    {
+      "nudsExport": "LoadingButton",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/LoadingButton/LoadingButton.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Button"],
+      "figmaComponentNames": ["[Magic] Button"],
+      "bdcNames": ["|button|v2"],
+      "usage": {
+        "requiredProps": ["label"],
+        "variantMap": [{ "figma": { "State": "Loading" }, "props": { "loading": true } }],
+        "fallbackRules": ["Prefer LoadingButton when MCP indicates button state=Loading."],
+        "examples": ["<LoadingButton label=\"Saving\" loading />"]
+      }
+    },
+    {
+      "nudsExport": "LoadingIndicator",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/LoadingIndicator/LoadingIndicator.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Loading Indicator"],
+      "figmaComponentNames": ["[Magic] Loading Indicator"],
+      "bdcNames": ["|loading-indicator|v2"],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [{ "figma": { "Compact": "True" }, "props": { "compact": true } }],
+        "fallbackRules": ["Use compact size for inline/tight contexts (20px).", "Use default size (48px) for standalone loading states."],
+        "examples": ["<LoadingIndicator />", "<LoadingIndicator compact />"]
+      }
+    },
+    {
+      "nudsExport": "NextBottomBar",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/NextBottomBar/NextBottomBar.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Next Bottom Bar"],
+      "figmaComponentNames": ["[Magic] Next Bottom Bar"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for step/progression next-action fixed footer."],
+        "examples": ["<NextBottomBar />"]
+      }
+    },
+    {
+      "nudsExport": "PinCode",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/PinCode/PinCode.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["PIN Code"],
+      "figmaComponentNames": ["[Magic] PIN Code"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["value", "onChange"],
+        "variantMap": [],
+        "fallbackRules": ["Use for fixed-length numeric code entry UIs."],
+        "examples": ["<PinCode value={value} onChange={setValue} />"]
+      }
+    },
+    {
+      "nudsExport": "SectionTitle",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/SectionTitle/SectionTitle.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Section Title"],
+      "figmaComponentNames": ["[Magic] Section Title"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["title"],
+        "variantMap": [],
+        "fallbackRules": ["Use when text label appears as section header over list/content blocks."],
+        "examples": ["<SectionTitle title=\"Overview\" />"]
+      }
+    },
+    {
+      "nudsExport": "SegmentedControl",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/SegmentedControl/SegmentedControl.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Segmented Control"],
+      "figmaComponentNames": ["[Magic] Segmented Control"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["segments", "selectedKey", "onSelect"],
+        "variantMap": [
+          { "figma": { "Type": "Label" }, "props": { "segments": "[{ key, label }]" } },
+          { "figma": { "Type": "Icon" }, "props": { "segments": "[{ key, icon }]" } },
+          { "figma": { "Type": "Icon + Label" }, "props": { "segments": "[{ key, icon, label }]" } },
+          { "figma": { "Size": "Small" }, "props": { "size": "small" } }
+        ],
+        "fallbackRules": ["Small size only applies to icon-only segments.", "Use standard size when segments contain labels."],
+        "examples": ["<SegmentedControl segments={segments} selectedKey={key} onSelect={setKey} />"]
+      }
+    },
+    {
+      "nudsExport": "Select",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/Select/Select.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Dropdown", "Input Dropdown"],
+      "figmaComponentNames": ["[Magic] Select", "[Magic] Input Dropdown"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["options"],
+        "variantMap": [{ "figma": { "Dropdown": "Open" }, "props": { "open": true } }],
+        "fallbackRules": ["Use Select for value picker/dropdown controls.", "If text entry is primary, use TextField instead."],
+        "examples": ["<Select options={options} />"]
+      }
+    },
+    {
+      "nudsExport": "SearchBar",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/SearchBar/SearchBar.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Search Bar", "Input Search"],
+      "figmaComponentNames": ["[Magic] Search Bar", "_BB / Search Bar / Input Search"],
+      "bdcNames": ["|input-search|v2", "|search-bar"],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [
+          { "figma": { "States": "Disabled" }, "props": { "disabled": true } },
+          { "figma": { "States": "Skeleton" }, "props": { "skeleton": true } },
+          { "figma": { "States": "Loading" }, "props": { "loading": true } }
+        ],
+        "fallbackRules": ["Use SearchBar for search input controls.", "Pair with FilterBar for search-with-filters patterns."],
+        "examples": ["<SearchBar placeholder=\"Search\" />", "<SearchBar loading value=\"query\" />"]
+      }
+    },
+    {
+      "nudsExport": "TextField",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/TextField/TextField.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Input Text", "Input Password"],
+      "figmaComponentNames": ["[Magic] Input Text", "[Magic] Input Password"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [{ "figma": { "Type": "Password" }, "props": { "secureTextEntry": true } }],
+        "fallbackRules": ["Use TextField for free-text input controls.", "Use secure mode when Figma references password input."],
+        "examples": ["<TextField placeholder=\"Type here\" />"]
+      }
+    },
+    {
+      "nudsExport": "TopBar",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/TopBar/TopBar.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Top Bar"],
+      "figmaComponentNames": ["[Magic] Top Bar"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for top navigation surface with title/leading/trailing actions."],
+        "examples": ["<TopBar />"]
+      }
+    },
+    {
+      "nudsExport": "TopBarFirstLayer",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/TopBarFirstLayer/TopBarFirstLayer.tsx",
+      "status": "partial",
+      "statusReason": "First-layer top bar variant used in composed navigation layouts; mapped by NuDS export identity while Figma naming is being stabilized.",
+      "figmaPageAliases": ["Top Bar"],
+      "figmaComponentNames": [],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for first-layer dashboard top area with avatar/name and optional tier, plus up to three trailing actions.", "Set isRefreshing=true when mapping pull-to-refresh expanded states."],
+        "examples": ["<TopBarFirstLayer firstName=\"Gabriela\" tier=\"Ultravioleta\" />"]
+      }
+    },
+    {
+      "nudsExport": "Tooltip",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/Tooltip/Tooltip.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Tooltip"],
+      "figmaComponentNames": ["[Magic] Tooltip"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["content"],
+        "variantMap": [],
+        "fallbackRules": ["Use when auxiliary help/description appears near anchor controls."],
+        "examples": ["<Tooltip content=\"Helpful text\" />"]
+      }
+    },
+    {
+      "nudsExport": "TransactionListRow",
+      "layer": "component",
+      "sourcePath": "packages/react-native/src/components/TransactionListRow/TransactionListRow.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Transaction List Row"],
+      "figmaComponentNames": ["[Magic] Transaction List Row"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": ["label"],
+        "variantMap": [{ "figma": { "State": "Skeleton" }, "props": { "skeleton": true } }],
+        "fallbackRules": ["Use for financial transaction row layouts with amount and metadata."],
+        "examples": ["<TransactionListRow label=\"Payment\" amount=\"99.00\" />"]
+      }
+    },
+    {
+      "nudsExport": "ActionSheet",
+      "layer": "pattern",
+      "sourcePath": "packages/react-native/src/patterns/ActionSheet/ActionSheet.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Bottom Sheet"],
+      "figmaComponentNames": ["_Prompt Modal / Actions List"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for bottom-sheet action-list patterns built from DS primitives/components."],
+        "examples": ["<ActionSheet />"]
+      }
+    },
+    {
+      "nudsExport": "CrossSellCarousel",
+      "layer": "pattern",
+      "sourcePath": "packages/react-native/src/patterns/CrossSellCarousel/CrossSellCarousel.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Contextual Offers Section"],
+      "figmaComponentNames": ["_[Magic] Cross-sell Banner"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for horizontal contextual offer card sequences."],
+        "examples": ["<CrossSellCarousel />"]
+      }
+    },
+    {
+      "nudsExport": "DashboardHero",
+      "layer": "pattern",
+      "sourcePath": "packages/react-native/src/patterns/DashboardHero/DashboardHero.tsx",
+      "status": "partial",
+      "statusReason": "Figma DS published components do not expose a stable DashboardHero identity; appears in reference screens.",
+      "figmaPageAliases": ["Reference Screens"],
+      "figmaComponentNames": [],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use when a screen-level hero composition is present and no direct component identity is available."],
+        "examples": ["<DashboardHero />"]
+      }
+    },
+    {
+      "nudsExport": "LimitBar",
+      "layer": "pattern",
+      "sourcePath": "packages/react-native/src/patterns/LimitBar/LimitBar.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Linear Progress Bar"],
+      "figmaComponentNames": ["[Magic] Linear Progress Bar"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for utilization/limit progression displays."],
+        "examples": ["<LimitBar />"]
+      }
+    },
+    {
+      "nudsExport": "PinChallenge",
+      "layer": "pattern",
+      "sourcePath": "packages/react-native/src/patterns/PinChallenge/PinChallenge.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["PIN Code"],
+      "figmaComponentNames": ["_Input Screen / PIN Code"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for full PIN challenge screen/pattern composition."],
+        "examples": ["<PinChallenge />"]
+      }
+    },
+    {
+      "nudsExport": "TransactionWidget",
+      "layer": "pattern",
+      "sourcePath": "packages/react-native/src/patterns/TransactionWidget/TransactionWidget.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Transaction Widget"],
+      "figmaComponentNames": ["[Magic] Transaction Widget"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for card-like transaction summaries/widgets."],
+        "examples": ["<TransactionWidget />"]
+      }
+    },
+    {
+      "nudsExport": "Widget2x2",
+      "layer": "pattern",
+      "sourcePath": "packages/react-native/src/patterns/Widget2x2/Widget2x2.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Widget 2x2"],
+      "figmaComponentNames": ["[Magic] Widget 2x2 Grid"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for 2x2 dashboard widget grid compositions."],
+        "examples": ["<Widget2x2 />"]
+      }
+    },
+    {
+      "nudsExport": "Widget4xN",
+      "layer": "pattern",
+      "sourcePath": "packages/react-native/src/patterns/Widget4xN/Widget4xN.tsx",
+      "status": "mapped",
+      "figmaPageAliases": ["Widget 4xN"],
+      "figmaComponentNames": ["[Magic] Widget 4xN Grid"],
+      "bdcNames": [],
+      "usage": {
+        "requiredProps": [],
+        "variantMap": [],
+        "fallbackRules": ["Use for 4xN dashboard widget layouts and contextual offers."],
+        "examples": ["<Widget4xN />"]
+      }
+    }
+  ]
+}

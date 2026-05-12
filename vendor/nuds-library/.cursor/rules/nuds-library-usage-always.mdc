@@ -1,0 +1,63 @@
+---
+description: Always apply NuDS library usage rules when building or modifying components in this design system
+alwaysApply: true
+---
+
+# NuDS Library Usage (Always On)
+
+## Architecture
+
+```
+@nubank/nuds-vibecode-tokens  ->  @nubank/nuds-vibecode-theme  ->  @nubank/nuds-vibecode-react-native
+```
+
+- `tokens`: raw design values (colors, spacing, radii, typography, elevation, motion, zIndex)
+- `theme`: semantic light/dark themes built from tokens (`NuDSTheme` type)
+- `react-native`: primitives, components, patterns, icons consumed by apps
+
+## Component Hierarchy
+
+| Layer | Location | What goes here |
+|-------|----------|----------------|
+| **Primitives** | `primitives/` | Atomic wrappers for RN core views bound to theme (Box, NText, Divider, Field) |
+| **Components** | `components/` | Reusable UI controls (Button, TextField, Select, TopBar, etc.) |
+| **Patterns** | `patterns/` | Composite product-level layouts (DashboardHero, Widget2x2, etc.) |
+| **Icons** | `icons/` | SVG icon components using react-native-svg |
+
+## Decision Tree
+
+1. **Can an existing component do this with current props?** -> Use it.
+2. **Can it do this with a new prop/variant?** -> Extend it (additive change only).
+3. **Is this a new theme-aware wrapper for an RN core view?** -> New primitive (rare).
+4. **Is this a new reusable control?** -> New component in `components/`.
+5. **Is this a product-specific composite layout?** -> New pattern in `patterns/`.
+
+## Non-Negotiable Rules
+
+1. **No raw color values** — All colors from `useNuDSTheme()`. Never `#hex` or `rgb()` in component files.
+2. **No direct token imports for runtime values** — Use `useNuDSTheme()`, not `import { spacing } from "@nubank/nuds-vibecode-tokens"`. Type-only imports are fine.
+3. **Theme-first styling** — Every color, spacing, radius, elevation, and typography value resolves through the theme object.
+4. **Use NText for all text** — Never raw `<Text>` from react-native.
+5. **Use Box for themed containers** — Plain `View` only when no background color is needed.
+6. **Lowercase variants** — `primary`, `secondary`, `ghost`, not `Primary`, `Secondary`.
+7. **Folder-per-component** — `ComponentName/ComponentName.tsx` + `ComponentName/index.ts` + optional `styles.ts`.
+8. **Barrel exports** — Every new component must be exported from its `index.ts` AND from `packages/react-native/src/index.ts`.
+9. **Accessibility** — Interactive components must set `accessibilityRole` and support `disabled`.
+10. **No product logic in DS** — No business logic, API calls, or product-specific assumptions in components.
+
+## Icons — Figma Mapping
+
+When working with Figma designs, **always check existing icons before creating new ones**. The full decision tree and name-matching rules are in `.cursor/rules/figma-icon-mapping-always.mdc`.
+
+- There are **~335 registered icons** — search the catalog before assuming one is missing.
+- **Never inline raw SVG** — always use an `<XxxIcon />` component.
+- **Use `PlaceholderIcon`** with a TODO comment when no match is found.
+- Full searchable catalog: `.cursor/skills/nuds-library-usage/icon-catalog.md`
+
+## Detailed Templates & Examples
+
+For code templates, detailed patterns, and extended guidance, read:
+
+- `.cursor/skills/nuds-library-usage/SKILL.md` — full architecture guide, theme reference tables, spacing/typography scales
+- `.cursor/skills/nuds-library-usage/component-patterns.md` — copy-paste templates for creating components, primitives, patterns, icons; extension patterns; common mistakes
+- `.cursor/skills/nuds-library-usage/icon-catalog.md` — searchable catalog of all icons with descriptions and Figma name aliases
