@@ -1,8 +1,6 @@
 import {
   ArrowBackIcon,
-  Avatar,
   Badge,
-  BuildingsIcon,
   Button,
   ListRow,
   NText,
@@ -12,8 +10,10 @@ import {
   useNuDSTheme,
 } from "@nu-design-org/nuds-vibecode-react-native";
 import { useRouter } from "expo-router";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+const urbanRentalsLogo = require("../assets/urban-rentals.png");
 
 export default function SummaryScreen() {
   const nuds = useNuDSTheme();
@@ -48,12 +48,14 @@ export default function SummaryScreen() {
       >
         {/* ── Snapshot Header (avatar + monto + badge) ── */}
         <View style={styles.headerWrap}>
-          <Avatar
-            variant="icon"
-            size="large"
-            backgroundColor="#8E8693"
-            icon={<BuildingsIcon size={32} color="#FFFFFF" />}
-          />
+          {/* Avatar real de Urban Rentals (size large = 64×64 según NuDS) */}
+          <View style={styles.brandAvatar}>
+            <Image
+              source={urbanRentalsLogo}
+              style={styles.brandAvatarImage}
+              resizeMode="cover"
+            />
+          </View>
 
           <View style={styles.amountWrap}>
             <NText
@@ -185,5 +187,16 @@ const styles = StyleSheet.create({
   bottomBar: {
     paddingHorizontal: 20,
     paddingVertical: 24,
+  },
+  brandAvatar: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    overflow: "hidden",
+    backgroundColor: "#FFFFFF",
+  },
+  brandAvatarImage: {
+    width: "100%",
+    height: "100%",
   },
 });
