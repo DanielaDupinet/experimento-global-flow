@@ -14,8 +14,11 @@ import {
   useNuDSTheme,
 } from "@nu-design-org/nuds-vibecode-react-native";
 import { StatusBar } from "expo-status-bar";
-import { Pressable, ScrollView, StyleSheet, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+const attLogo = require("../assets/att.png");
+const netflixLogo = require("../assets/netflix.png");
 
 const NUDS_TOP_ICON_HIT = 44;
 const NUDS_TOP_ICON_INNER = 32;
@@ -28,11 +31,16 @@ export default function PayScreen() {
 
   /* ── Colores de marca tomados del diseño Figma ── */
   const brandColors = {
-    att: "#00A8E0",
     nu: "#820AD1",
     rent: "#8E8693",
-    netflix: "#000000",
   };
+
+  /* ── Avatar circular de 32px con imagen real (mismo tamaño que NuDS Avatar size="small") ── */
+  const BrandImageAvatar = ({ source }: { source: number }) => (
+    <View style={styles.brandAvatar}>
+      <Image source={source} style={styles.brandAvatarImage} resizeMode="cover" />
+    </View>
+  );
 
   const transactions = [
     {
@@ -42,14 +50,7 @@ export default function PayScreen() {
       description: "To pay",
       amount: "100.00",
       amountPrefix: "$",
-      leading: (
-        <Avatar
-          variant="initials"
-          size="small"
-          initials="AT"
-          backgroundColor={brandColors.att}
-        />
-      ),
+      leading: <BrandImageAvatar source={attLogo} />,
     },
     {
       key: "credit-card",
@@ -90,14 +91,7 @@ export default function PayScreen() {
       description: "To pay",
       amount: "100.00",
       amountPrefix: "$",
-      leading: (
-        <Avatar
-          variant="initials"
-          size="small"
-          initials="N"
-          backgroundColor={brandColors.netflix}
-        />
-      ),
+      leading: <BrandImageAvatar source={netflixLogo} />,
     },
   ];
 
@@ -248,5 +242,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingBottom: 12,
     paddingTop: 4,
+  },
+  brandAvatar: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    overflow: "hidden",
+    backgroundColor: "#FFFFFF",
+  },
+  brandAvatarImage: {
+    width: "100%",
+    height: "100%",
   },
 });
